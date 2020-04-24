@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="960.0" style="-fx-background-color: #006363;" stylesheets="@../../../lab3_computational_math/src/Stylesheets/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ApproximationController">
+    <children>
+        <AnchorPane layoutY="65.0" prefHeight="585.0" prefWidth="960.0" style="-fx-background-color: #fafafa;">
+            <children>
+                <Text layoutX="17.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Выберите вид аппроксимации:" wrappingWidth="310.3999999999999">
+                    <font>
+                        <Font name="Courier New" size="18.0" />
+                    </font>
+                </Text>
+                <Button fx:id="solveBut" layoutX="17.0" layoutY="460.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="136.0" style="-fx-background-color: #006363;" text="Рассчитать" textFill="WHITE">
+                    <font>
+                        <Font name="Courier New Bold" size="18.0" />
+                    </font>
+                </Button>
+                <LineChart fx:id="lineChart" animated="false" layoutX="501.0" layoutY="11.0" prefHeight="338.0" prefWidth="447.0" stylesheets="@../Stylesheets/style.css" title="График функции">
+                    <xAxis>
+                        <NumberAxis label="x" prefHeight="47.0" prefWidth="456.0" side="BOTTOM" fx:id="xAxis" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="yAxis" label="y" prefHeight="248.0" prefWidth="57.0" side="LEFT" />
+                    </yAxis>
+                </LineChart>
+                <RadioButton fx:id="linear" layoutX="17.0" layoutY="52.0" mnemonicParsing="false" text="линейная">
+                    <font>
+                        <Font name="Courier New" size="18.0" />
+                    </font>
+                    <toggleGroup>
+                        <ToggleGroup fx:id="group1" />
+                    </toggleGroup>
+                </RadioButton>
+                <RadioButton fx:id="quadratic" layoutX="17.0" layoutY="82.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="184.0" text="квадратичная" toggleGroup="$group1">
+                    <font>
+                        <Font name="Courier New" size="18.0" />
+                    </font>
+                </RadioButton>
+                <RadioButton fx:id="pow" layoutX="17.0" layoutY="112.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="136.0" text="степенная" toggleGroup="$group1">
+                    <font>
+                        <Font name="Courier New" size="18.0" />
+                    </font>
+                </RadioButton>
+                <RadioButton fx:id="exponent" layoutX="17.0" layoutY="142.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="220.0" text="экспоненциальная" toggleGroup="$group1">
+                    <font>
+                        <Font name="Courier New" size="18.0" />
+                    </font>
+                </RadioButton>
+                <RadioButton fx:id="log" layoutX="17.0" layoutY="172.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="200.0" text="логарифмическая" toggleGroup="$group1">
+                    <font>
+                        <Font name="Courier New" size="18.0" />
+                    </font>
+                </RadioButton>
+                <TextArea fx:id="answerTextArea" layoutX="565.0" layoutY="362.0" prefHeight="200.0" prefWidth="376.0" />
+            <TableView fx:id="pointsTable" fixedCellSize="0.0" layoutX="366.0" layoutY="41.0" prefHeight="521.0" prefWidth="140.0">
+               <columns>
+                  <TableColumn maxWidth="70.0" prefWidth="70.0" text="X" fx:id="xCol" />
+                  <TableColumn fx:id="yCol" maxWidth="70.0" prefWidth="70.0" text="Y" />
+               </columns>
+            </TableView>
+            <Text layoutX="17.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введите координаты X через пробел" wrappingWidth="338.05804443359375">
+               <font>
+                  <Font name="Courier New" size="18.0" />
+               </font>
+            </Text>
+            <TextArea layoutX="17.0" layoutY="277.0" prefHeight="52.0" prefWidth="310.0" fx:id="xTextArea" />
+            <Text layoutX="17.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введите координаты Y через пробел" wrappingWidth="338.0580444335938">
+               <font>
+                  <Font name="Courier New" size="18.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="yTextArea" layoutX="17.0" layoutY="393.0" prefHeight="52.0" prefWidth="310.0" />
+            <Button fx:id="test1" layoutX="17.0" layoutY="521.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: #5CCCCC;" text="Тест 1">
+               <font>
+                  <Font name="Courier New" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="test2" layoutX="117.0" layoutY="521.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: #5CCCCC;" text="Тест 2">
+               <font>
+                  <Font name="Courier New" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="test3" layoutX="217.0" layoutY="521.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="90.0" style="-fx-background-color: #5CCCCC;" text="Тест 3">
+               <font>
+                  <Font name="Courier New" size="18.0" />
+               </font>
+            </Button>
+            </children>
+        </AnchorPane>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fill="#fdfcfc" layoutX="102.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Аппроксимация методом наименьших квадратов">
+         <font>
+            <Font name="Courier New" size="30.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>
